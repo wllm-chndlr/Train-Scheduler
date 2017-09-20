@@ -1,0 +1,72 @@
+html {
+  background-image: url("images/high_speed_train.jpg");
+}
+
+body {
+  font-family: 'Pathway Gothic One', sans-serif;
+  color: #4C4C4C;
+}
+
+#header {
+  font-size: 80px;
+  padding: 20px;
+}
+
+a.brand-logo {
+  padding-left: 20px;
+}
+
+#weather, #weather-li {
+  padding-right: 20px;
+}
+
+div.nav-wrapper {
+   color: #fff;
+   font-size: 180px;
+   text-align: left;
+   /* background-image: url("images/tracks_crop.jpg"); */
+   background-color: #3F3F3F;
+}
+
+#results-panel {
+  margin-top: 40px;
+}
+
+#current-time-display {
+  font-size: 30px;
+  color: #2bbbad;
+}
+
+label {
+  font-size: 16px;
+  color: #4C4C4C;
+}
+
+th {
+  font-size: 18px;
+  color: #2bbbad;
+}
+
+div.panel.panel-primary {
+  background-color: #fff;
+  padding: 20px;
+  border: 3px solid #3F3F3F;
+}
+
+.train-adder {
+  margin-bottom: 40px;
+}
+
+.btn, .btn:hover {
+  background-color: #2bbbad;
+}
+
+input.form-control {
+  color: #2bbbad;
+}
+
+.page-footer {
+  background-color: #3F3F3F;
+  padding-bottom: 20px;
+  text-align: center;
+}
