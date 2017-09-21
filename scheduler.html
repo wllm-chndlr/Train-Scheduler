@@ -28,7 +28,7 @@
             <div class="nav-wrapper">
               <a href="scheduler.html" class="brand-logo">TRAIN SCHEDULER</a>
               <ul class="right hide-on-med-and-down">
-                <li id="weather-li"><a id="weather" href="https://weather.com/" target="_blank">Weather</a></li>
+                <li id="weather-li"><a id="weather" href="https://weather.com/" target="_blank">Check weather</a></li>
               </ul>
             </div>
           </nav>
@@ -43,7 +43,7 @@
         <!-- This row will handle all of the retrieved data -->
         <div class="row">
           <div class="col s12">
-            <!-- This panel will initially be made up of a panel and wells for all the data retrieved -->
+            <!-- This panel will contain the data retrieved -->
 
             <div class="panel panel-primary" id="results-panel">
               
@@ -56,24 +56,24 @@
 
               <!-- This main panel will hold the schedule details -->
               <div class="panel-body">
-                <!-- <div class="row"> -->
-                  <table class="striped">
-                    <thead>
-                      <tr>
-                        <th>Train Name</th>
-                        <th>Destination</th>
-                        <th>First Departure</th>
-                        <th>Frequency (min)</th>
-                        <th>Next Arrival</th>
-                        <th>Minutes Away</th>
-                        <th>Submission timestamp</th>
-                      </tr>
-                    </thead>
-                    <tbody></tbody>
-                  </table>
-                <!-- </div> -->
+                <table class="striped">
+                  <thead>
+                    <tr>
+                      <th>Train Name</th>
+                      <th>Destination</th>
+                      <th>First Departure</th>
+                      <th>Frequency (min)</th>
+                      <th>Next Arrival</th>
+                      <th>Minutes Away</th>
+                      <th class="hide-on-small-only">Submission timestamp</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
               </div>
             </div>
+
           </div>
         </div>
 
@@ -150,7 +150,7 @@
 
     <footer class="page-footer">
         <!-- <div class="container"> -->
-          Made by William Chandler, 2017
+        © William Chandler, 2017
         <!-- </div> -->
     </footer>
 

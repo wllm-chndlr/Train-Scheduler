@@ -22,9 +22,9 @@ var update = function () {
 };
 
 $(document).ready(function(){
-datetime = $('#current-time-display')
-update();
-setInterval(update, 1000);
+  datetime = $('#current-time-display')
+  update();
+  setInterval(update, 1000);
 });
 
 // $("<img>").addClass("responsive-img");
@@ -40,27 +40,32 @@ $("#submit-train-details").on("click", function(event) {
   var firstDeparture = $("#time-input").val().trim();
   var frequency = $("#frequency-input").val().trim();
 
+  // Current time
   var currentTime = moment(currentTime).format("HH:mm:ss, M/D/Y");
   console.log(currentTime);
 
+  // First departure (pushed back 1 year to make sure it comes before current time)
   var firstDepartureConverted = moment(firstDeparture, "HH:mm").subtract(1, "years");
-  console.log(firstDepartureConverted);
+  console.log("FIRST DEPARTURE CONVERTED: " + firstDepartureConverted);
 
+  // Difference between the times
   var diffTime = moment().diff(moment(firstDepartureConverted), "minutes");
-  console.log(diffTime);
+  console.log("DIFFERENCE: " + diffTime);
 
+  // Time apart (remainder)
   var tRemainder = diffTime % frequency;
-  console.log(tRemainder);
+  console.log("REMAINDER: " + tRemainder);
 
+  // Minutes until next train
   var tMinutesTillTrain = frequency - tRemainder;
   console.log("NEXT ARRIVAL: " + tMinutesTillTrain);
 
+  // Next train's arrival time
   var nextTrain = moment().add(tMinutesTillTrain, "minutes");
   var nextTrainConverted = moment(nextTrain).format("HH:mm");
   console.log("ARRIVAL TIME: " + moment(nextTrain).format("HH:mm"));  
 
-
-  // Creates local "temporary" object for holding train data
+  // Creates local temporary object for holding train data
   var newTrain = {
     trainName: trainName,
     destination: destination,
@@ -74,50 +79,49 @@ $("#submit-train-details").on("click", function(event) {
   // Uploads train data to the database
   database.ref().push(newTrain);
 
-  // Alert
+  // Notification that train details have been added
   Materialize.toast('Train details successfully added', 3000, 'orange rounded');
 
-  // Clears all of the text boxes
+  // Clear all the text boxes after submission
   $("#name-input").val("");
   $("#destination-input").val("");
   $("#time-input").val("");
   $("#frequency-input").val("");
+  
+  Materialize.updateTextFields();
+  
 });
 
-// Firebase watcher + initial loader + order/limit HINT: .on("child_added"
+// Firebase watcher + initial loader + order
 database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
-  // storing the snapshot.val() in a variable for convenience
+  
+  // Store the snapshot.val() in a variable for convenience
   var trainz = snapshot.val();
 
-  // Console.loging the last user's data
-  // console.log(trainz.trainName);
-  // console.log(trainz.destination);
-  // console.log(trainz.firstDeparture);
-  // console.log(trainz.frequency);
-
-$("tbody").append($('<tr>')
-  .append($('<td>')
-    .text(trainz.trainName)
-  )
-  .append($('<td>')
-    .text(trainz.destination)
-  )
-  .append($('<td>')
-    .text(trainz.firstDeparture)
-  )
-  .append($('<td>')
-    .text(trainz.frequency)
-  )
-  .append($('<td>')
-    .text(trainz.nextTrainConverted)
-  )
-  .append($('<td>')
-    .text(trainz.tMinutesTillTrain)
-  )
-  .append($('<td>')
-    .text(trainz.timeOfInquiry)
-  )
-); 
+  // Append train details to the table
+  $("tbody").append($('<tr>')
+    .append($('<td>')
+      .text(trainz.trainName)
+    )
+    .append($('<td>')
+      .text(trainz.destination)
+    )
+    .append($('<td>')
+      .text(trainz.firstDeparture)
+    )
+    .append($('<td>')
+      .text(trainz.frequency)
+    )
+    .append($('<td>')
+      .text(trainz.nextTrainConverted)
+    )
+    .append($('<td>')
+      .text(trainz.tMinutesTillTrain)
+    )
+    .append($('<td class="hide-on-small-only">')
+      .text(trainz.timeOfInquiry)
+    )
+  ); 
   
 // Handle the errors
 }, function(errorObject) {

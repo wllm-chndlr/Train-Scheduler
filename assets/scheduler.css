@@ -5,6 +5,7 @@ html {
 body {
   font-family: 'Pathway Gothic One', sans-serif;
   color: #4C4C4C;
+  font-size: 16px;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -26,6 +27,7 @@ a.brand-logo {
 
 #weather, #weather-li {
   padding-right: 20px;
+  font-size: 18px;
 }
 
 div.nav-wrapper {
@@ -49,9 +51,17 @@ label {
   color: #4C4C4C;
 }
 
+.input-field label {
+  font-size: 1.2rem;
+}
+
 th {
-  font-size: 18px;
+  font-size: 20px;
   color: #2bbbad;
+}
+
+td {
+  font-size: 18px;
 }
 
 div.panel.panel-primary {
@@ -61,11 +71,15 @@ div.panel.panel-primary {
 }
 
 .train-adder {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .btn, .btn:hover {
   background-color: #2bbbad;
+}
+
+input#name-input.form-control, input#destination-input.form-control, input#time-input.form-control, input#frequency-input.form-control {
+  font-size: 1.2rem;
 }
 
 input.form-control {
