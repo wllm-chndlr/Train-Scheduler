@@ -9,6 +9,7 @@ var config = {
  };
  firebase.initializeApp(config);
 
+// Assign Firebase database to a variable
 var database = firebase.database();
 
 // Variables and function to update time display every second
@@ -26,8 +27,8 @@ update();
 setInterval(update, 1000);
 });
 
-// $("#current-time-display").text(moment().format("HH:mm"));
-$("<img>").addClass("responsive-img");
+// $("<img>").addClass("responsive-img");
+$("<html>").addClass("responsive-img");
  
 // Button for adding train details
 $("#submit-train-details").on("click", function(event) {

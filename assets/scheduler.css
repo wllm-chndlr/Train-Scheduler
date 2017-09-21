@@ -5,6 +5,13 @@ html {
 body {
   font-family: 'Pathway Gothic One', sans-serif;
   color: #4C4C4C;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 #header {
@@ -14,6 +21,7 @@ body {
 
 a.brand-logo {
   padding-left: 20px;
+  font-size: 40px;
 }
 
 #weather, #weather-li {
@@ -24,7 +32,6 @@ div.nav-wrapper {
    color: #fff;
    font-size: 180px;
    text-align: left;
-   /* background-image: url("images/tracks_crop.jpg"); */
    background-color: #3F3F3F;
 }
 
@@ -67,6 +74,7 @@ input.form-control {
 
 .page-footer {
   background-color: #3F3F3F;
+  padding-right: 30px;
   padding-bottom: 20px;
-  text-align: center;
+  text-align: right;
 }
