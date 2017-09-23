@@ -1,3 +1,3 @@
 # Train-Scheduler
 
-Chugga chugga
+A useful app to determine train arrival times.

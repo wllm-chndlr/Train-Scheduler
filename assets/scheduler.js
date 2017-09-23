@@ -12,7 +12,7 @@ var config = {
 // Assign Firebase database to a variable
 var database = firebase.database();
 
-// Variables and function to update time display every second
+// Update current time display every second
 var datetime = null,
 date = null;
 
@@ -27,9 +27,6 @@ $(document).ready(function(){
   setInterval(update, 1000);
 });
 
-// $("<img>").addClass("responsive-img");
-$("<html>").addClass("responsive-img");
- 
 // Button for adding train details
 $("#submit-train-details").on("click", function(event) {
   event.preventDefault();
@@ -42,28 +39,22 @@ $("#submit-train-details").on("click", function(event) {
 
   // Current time
   var currentTime = moment(currentTime).format("HH:mm:ss, M/D/Y");
-  console.log(currentTime);
 
   // First departure (pushed back 1 year to make sure it comes before current time)
   var firstDepartureConverted = moment(firstDeparture, "HH:mm").subtract(1, "years");
-  console.log("FIRST DEPARTURE CONVERTED: " + firstDepartureConverted);
 
   // Difference between the times
   var diffTime = moment().diff(moment(firstDepartureConverted), "minutes");
-  console.log("DIFFERENCE: " + diffTime);
 
   // Time apart (remainder)
   var tRemainder = diffTime % frequency;
-  console.log("REMAINDER: " + tRemainder);
 
   // Minutes until next train
   var tMinutesTillTrain = frequency - tRemainder;
-  console.log("NEXT ARRIVAL: " + tMinutesTillTrain);
 
-  // Next train's arrival time
+  // Arrival time of next train
   var nextTrain = moment().add(tMinutesTillTrain, "minutes");
   var nextTrainConverted = moment(nextTrain).format("HH:mm");
-  console.log("ARRIVAL TIME: " + moment(nextTrain).format("HH:mm"));  
 
   // Creates local temporary object for holding train data
   var newTrain = {
@@ -118,12 +109,12 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
     .append($('<td>')
       .text(trainz.tMinutesTillTrain)
     )
-    .append($('<td class="hide-on-small-only">')
+    .append($('<td>')
       .text(trainz.timeOfInquiry)
     )
   ); 
   
-// Handle the errors
+// Error handler
 }, function(errorObject) {
   console.log("Errors handled: " + errorObject.code);
 });

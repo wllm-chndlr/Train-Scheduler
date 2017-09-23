@@ -23,6 +23,7 @@ main {
 a.brand-logo {
   padding-left: 20px;
   font-size: 40px;
+  width: 80%;
 }
 
 #weather, #weather-li {
@@ -41,27 +42,15 @@ div.nav-wrapper {
   margin-top: 40px;
 }
 
-#current-time-display {
-  font-size: 30px;
-  color: #2bbbad;
-}
-
-label {
-  font-size: 16px;
-  color: #4C4C4C;
-}
-
-.input-field label {
-  font-size: 1.2rem;
-}
-
 th {
   font-size: 20px;
   color: #2bbbad;
+  padding-bottom: 10px;
 }
 
 td {
   font-size: 18px;
+  padding-bottom: 13px;
 }
 
 div.panel.panel-primary {
@@ -78,6 +67,20 @@ div.panel.panel-primary {
   background-color: #2bbbad;
 }
 
+#current-time-display {
+  font-size: 30px;
+  color: #2bbbad;
+}
+
+label {
+  font-size: 16px;
+  color: #4C4C4C;
+}
+
+.input-field label {
+  font-size: 1.2rem;
+}
+
 input#name-input.form-control, input#destination-input.form-control, input#time-input.form-control, input#frequency-input.form-control {
   font-size: 1.2rem;
 }
@@ -91,4 +94,8 @@ input.form-control {
   padding-right: 30px;
   padding-bottom: 20px;
   text-align: right;
+}
+
+a {
+  color: #fff;
 }

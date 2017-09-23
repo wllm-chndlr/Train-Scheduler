@@ -35,28 +35,29 @@
       </div>
     </header>
 
+    <!-- Main section -->
     <main>
 
-      <!-- Main container -->
+      <!-- Primary container -->
       <div class="container">
       
         <!-- This row will handle all of the retrieved data -->
         <div class="row">
           <div class="col s12">
+            
             <!-- This panel will contain the data retrieved -->
-
             <div class="panel panel-primary" id="results-panel">
               
-              <!-- Panel heading for schedule details panel -->
+              <!-- Panel heading for schedule details -->
               <div class="panel-heading">
                 <h3 class="panel-title">
                   <strong>Current Train Schedule</strong>
                 </h3>
               </div>
 
-              <!-- This main panel will hold the schedule details -->
-              <div class="panel-body">
-                <table class="striped">
+              <!-- Panel for schedule details -->
+              <div class="panel-body train-table">
+                <table class="striped responsive-table">
                   <thead>
                     <tr>
                       <th>Train Name</th>
@@ -65,7 +66,7 @@
                       <th>Frequency (min)</th>
                       <th>Next Arrival</th>
                       <th>Minutes Away</th>
-                      <th class="hide-on-small-only">Submission timestamp</th>
+                      <th>Submission timestamp</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -78,7 +79,6 @@
         </div>
 
         <!-- Row for adding train -->
-
         <div class="row">
 
           <div class="col s6">
@@ -91,7 +91,7 @@
               </div>
 
               <div class="panel-body">
-                <!-- Here we create an HTML Form for handling the inputs -->
+                <!-- HTML form to handle inputs -->
                 <form role="form">
                   <!-- Get train name from user -->
                   <div class="input-field">
@@ -105,7 +105,7 @@
                     <input type="text" class="form-control" id="destination-input"></input>
                   </div>
 
-                  <!-- Get first train time from user -->
+                  <!-- Get first departure time from user -->
                   <div class="input-field">
                     <label for="time-input">First Departure (military time)</label>
                     <input type="text" class="form-control" id="time-input"></input>
@@ -136,7 +136,6 @@
               </div>
 
               <div class="panel-body" id="current-time-display">
-
               </div>
 
             </div>
@@ -148,9 +147,10 @@
 
     </main>
 
+    <!-- Footer -->
     <footer class="page-footer">
         <!-- <div class="container"> -->
-        © William Chandler, 2017
+        © <a href="https://wllm-chndlr.github.io/" target="_blank" id="git">William Chandler</a>, 2017
         <!-- </div> -->
     </footer>
 
@@ -169,7 +169,7 @@
     <!-- Link to FirebaseUI -->
     <script src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script>
 
-    <!-- Link to JS file -->
+    <!-- Link to proprietary JS file -->
     <script src="assets/scheduler.js"></script>
 
   </body>
